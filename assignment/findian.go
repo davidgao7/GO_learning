@@ -12,20 +12,18 @@ func main() {
 
 	fmt.Scan(&input)
 
+	/*
+	* enter a string that starts with the character ‘i’, ends with the character ‘n’,
+	* and contains the character ‘a’, such as "iaaaan". Does the program print "Found!"*/
+	if input[0] != 'i' || input[len(input)-1] != 'n' {
+		fmt.Println("Not Found!")
+		return
+	}
 	for i := 0; i < len(input); i++ {
-		if input[i] == 'i' || input[i] == 'a' || input[i] == 'n' {
+		if input[i] == 'a' {
 			fmt.Println("Found!")
 			return
 		}
 	}
 	fmt.Println("Not Found!")
-}
-
-func findc(input *string, c string) {
-	for i := 0; i < len(*input); i++ {
-		if string((*input)[i]) == c {
-			fmt.Println("Found!")
-			return
-		}
-	}
 }
