@@ -6,7 +6,11 @@ import (
 )
 
 func main() {
-	var floatNum float64 = 123.456789
+	var floatNum float64
+	fmt.Println("Enter a floating point number:")
+	// fmt.Scan(&floatNum)
+	fmt.Scanf("%f", &floatNum)
+
 	fmt.Println("Original floating point number:", floatNum)
 
 	// Truncate the floating point number
