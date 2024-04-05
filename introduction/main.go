@@ -20,4 +20,28 @@ func main() { // main package need main function
 	fmt.Printf("number of apple?")
 	fmt.Scanln(&appleNum) // takes address of appleNum
 	fmt.Printf(appleNum)
+	fmt.Print("\n=================")
+	fmt.Println()
+
+	// maps
+	var m map[string]int
+	m = make(map[string]int)
+	m["key"] = 10
+	fmt.Println(m["key"]) // print 10
+	delete(m, "key")
+	fmt.Println(m["key"]) // print 0
+
+	// two value assignment for maps
+	val, ok := m["key"]  // val is value, ok is presence of key
+	fmt.Println(val, ok) // print 0, false
+
+	// iterate through maps
+	print("==========Iterate through maps==========\n")
+	m["a"] = 1
+	m["b"] = 2
+	m["c"] = 3
+	for key, val := range m {
+		fmt.Println(key, val)
+	}
+	print("==========Iterate through maps==========\n")
 }
