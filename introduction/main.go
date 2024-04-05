@@ -44,4 +44,56 @@ func main() { // main package need main function
 		fmt.Println(key, val)
 	}
 	print("==========Iterate through maps==========\n")
+
+	x := []int{4, 8, 5}
+	y := -1
+	for _, elt := range x {
+		if elt > y {
+			y = elt
+		}
+	}
+	fmt.Print(y)
+
+	print("\n===================================\n")
+	x = []int{4, 8, 5}
+	Y := x[0:2]
+	z := x[1:3]
+	Y[0] = 1
+	z[1] = 3
+	fmt.Print(x)
+
+	print("\n===================================\n")
+	a := [...]int{1, 2, 3, 4, 5}
+	b := a[0:2]
+	c := a[1:4]
+	fmt.Print(len(b), cap(b), len(c), cap(c))
+
+	print("\n===================================\n")
+	d := map[string]int{
+		"ian": 1, "harris": 2}
+	for i, j := range d {
+		if i == "harris" {
+			fmt.Print(i, j)
+		}
+	}
+	print("\n===================================\n")
+	type P struct {
+		x string
+		y int
+	}
+	e := P{"x", -1}
+	f := [...]P{P{"a", 10},
+		P{"b", 2},
+		P{"c", 3}}
+	for _, z := range f {
+		if z.y > e.y {
+			e = z
+		}
+	}
+	fmt.Println(e.x)
+	print("\n===================================\n")
+	s := make([]int, 0, 3)
+	s = append(s, 100)
+	fmt.Println(len(s), cap(s))
+
 }
