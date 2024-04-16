@@ -96,4 +96,39 @@ func main() { // main package need main function
 	s = append(s, 100)
 	fmt.Println(len(s), cap(s))
 
+	print("\n===================================\n")
+	print(add(1, 2))
+	print("\n===================================\n")
+
+	// like python, you can assign more than 1 variable
+	var1, var2 := returnMultiple(1) // print 1, return 1, 2
+	println(var1, var2)             // print 1, 2
+	print("===================================\n")
+
+	// call by reference
+	aa := 5
+	reference(&aa) // change the value of aa at memory address from 5 to 10
+	fmt.Print(aa)  // 10
+	print("\n===================================\n")
+
 }
+
+// create a function
+// func var can be simplify if have the same data type
+func add(a, b int) int { // get two int type as inputs, return an int type
+	fmt.Println(a + b)
+	return a + b
+}
+
+func returnMultiple(i int) (int, int) {
+	fmt.Println(i)
+	return 1, 2
+}
+
+func reference(a *int) {
+	*a = 10
+}
+
+// go : use slice instead of array
+// create a slice
+var cars = []string{"BMW", "Benz", "Audi"}
