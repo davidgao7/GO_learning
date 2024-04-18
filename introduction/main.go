@@ -111,6 +111,9 @@ func main() { // main package need main function
 	fmt.Print(aa)  // 10
 	print("\n===================================\n")
 
+	// assign the function to the variable
+	var addone func(int) int = incFn
+	fmt.Println(addone(5))
 }
 
 // create a function
@@ -132,3 +135,8 @@ func reference(a *int) {
 // go : use slice instead of array
 // create a slice
 var cars = []string{"BMW", "Benz", "Audi"}
+
+// define the function
+func incFn(x int) int {
+	return x + 1
+}
