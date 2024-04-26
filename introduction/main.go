@@ -113,7 +113,12 @@ func main() { // main package need main function
 
 	// assign the function to the variable
 	var addone func(int) int = incFn
-	fmt.Println(addone(5))
+	fmt.Println(addone(5)) // print 6
+
+	// call the slice
+	var i myInt = 5
+	fmt.Print(i.addOne()) // Output: 6
+	print("\n===================================\n")
 }
 
 // create a function
@@ -139,4 +144,13 @@ var cars = []string{"BMW", "Benz", "Audi"}
 // define the function
 func incFn(x int) int {
 	return x + 1
+}
+
+// associate a method with an arbitrary data type
+// Define your type
+type myInt int
+
+// Define a method on the type
+func (m myInt) addOne() myInt {
+	return m + 1
 }
