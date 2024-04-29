@@ -1,6 +1,7 @@
 package main // special package name
 import "fmt" // format
 import "math"
+import "os"
 
 // create function
 func main() { // main package need main function
@@ -130,6 +131,14 @@ func main() { // main package need main function
 	DrawShape(r)
 	DrawShape(t)
 	print("\n===================================\n")
+
+	// error handling
+	// error interface
+	_, err := os.Open("filename.ext")
+	if err != nil {
+		fmt.Println(err)
+	}
+	print("\n===================================\n")
 }
 
 // create a function
@@ -198,7 +207,7 @@ func (t Triangle) Perimeter() float64 {
 
 // determine type
 func DrawShape(s Shape2D) bool {
-	_, ok := s.(Rectangle)
+	_, ok := s.(Rectangle) // type assertion
 	if ok {
 		fmt.Println("Drawing Rectangle")
 		return true
