@@ -1,5 +1,6 @@
 package main // special package name
 import "fmt" // format
+import "math"
 
 // create function
 func main() { // main package need main function
@@ -119,6 +120,16 @@ func main() { // main package need main function
 	var i myInt = 5
 	fmt.Print(i.addOne()) // Output: 6
 	print("\n===================================\n")
+
+	// polymorphism
+	r := Rectangle{Width: 3, Height: 4}
+	t := Triangle{Base: 3, Height: 4}
+
+	fmt.Println("Rectangle Area:", r.Area())
+	fmt.Println("Rectangle Perimeter:", r.Perimeter())
+	DrawShape(r)
+	DrawShape(t)
+	print("\n===================================\n")
 }
 
 // create a function
@@ -153,4 +164,49 @@ type myInt int
 // Define a method on the type
 func (m myInt) addOne() myInt {
 	return m + 1
+}
+
+type Shape2D interface {
+	Area() float64
+	Perimeter() float64
+}
+
+type Rectangle struct {
+	Width, Height float64
+}
+
+func (r Rectangle) Area() float64 {
+	return r.Width * r.Height
+}
+
+func (r Rectangle) Perimeter() float64 {
+	return 2 * (r.Width + r.Height)
+}
+
+type Triangle struct {
+	Base, Height float64
+}
+
+func (t Triangle) Area() float64 {
+	return 0.5 * t.Base * t.Height
+}
+
+func (t Triangle) Perimeter() float64 {
+	// Assuming this is a right triangle, the perimeter would be:
+	return t.Base + t.Height + math.Sqrt(t.Base*t.Base+t.Height*t.Height)
+}
+
+// determine type
+func DrawShape(s Shape2D) bool {
+	_, ok := s.(Rectangle)
+	if ok {
+		fmt.Println("Drawing Rectangle")
+		return true
+	}
+	_, ok = s.(Triangle)
+	if ok {
+		fmt.Println("Drawing Triangle")
+		return true
+	}
+	return false
 }
