@@ -207,6 +207,11 @@ func (t Triangle) Perimeter() float64 {
 
 // determine type
 func DrawShape(s Shape2D) bool {
+	/*
+	 * So, `ok` is a boolean value that is `true` if the type assertion was successful
+	 * and `false` otherwise. The `if ok` statement is equivalent to `if ok == true`.
+	 * */
+
 	_, ok := s.(Rectangle) // type assertion
 	if ok {
 		fmt.Println("Drawing Rectangle")
